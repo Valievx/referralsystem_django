@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+  <h2>Введите номер телефона для авторизации</h2>
+    <form method="post">
+    {% csrf_token %}
+      <div class="form-group">
+        <label for="phone_number">Номер телефона</label>
+        <input type="tel" id="phone_number" name="phone_number" pattern="^\+7\d{10}$" maxlength="12" value="+7" required>
+      </div>
+      {% if form.errors %}
+        <div class="error">
+          {{ form.errors.as_text }}
+        </div><br />
+      {% endif %}
+      {% if error_message %}
+        <div class="error">
+          {{ error_message }}
+        </div><br />
+        {% endif %}
+      <button type="submit" class="update-button">Получить код</button>
+    </form>
+</div>
+
+{% endblock %}

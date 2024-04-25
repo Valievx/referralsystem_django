@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+
+  backend:
+    image: referralsystem_django
+    build: .
+    command: python manage.py runserver 0:8000
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=postgres
+      - DB_NAME=ref_system
+      - DB_USER=postgres
+      - DB_PASSWORD=thepaik88
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=thepaik88
+      - POSTGRES_DB=ref_system

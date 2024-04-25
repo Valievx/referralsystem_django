@@ -1,0 +1,90 @@
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="tel"], [type="text"] {
+    margin: 5px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.update-button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.update-button:hover {
+    background-color: #0056b3;
+    text-decoration: none;
+    color: white;
+}
+.error {
+    color: red;
+}
+
+table {
+    width: auto;
+    border-collapse: collapse;
+    table-layout: auto;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.close-button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: #000000;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+    background-color: #d11717;
+    text-decoration: none;
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+}

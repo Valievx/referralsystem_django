@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+  <h2>Ваш профиль</h2>
+    <table>
+      <tr>
+        <th>Номер телефона</th>
+        <td>{{ user.phone_number }}</td>
+      </tr>
+      <tr>
+        <th>Мой инвайт-код</th>
+        <td>{{ user.my_invite_code }}</td>
+      </tr>
+      <tr>
+        <th>Код приглашения</th>
+        <td>{{ user.inviter_code }}</td>
+      </tr>
+    </table>
+
+    <h3>Мои приглашенные пользователи:</h3>
+      <ul>
+        {% for invite in invites %}
+          <li>{{ invite.phone_number }}</li>
+        {% empty %}
+          <li>Пока никто не ввел ваш инвайт-код</li>
+        {% endfor %}
+      </ul>
+    <a class="update-button" href="{% url 'users:web_profile_update' %}">Обновить</a>
+    <a class="close-button" href="/">Выход</a>
+
+</div>
+
+{% endblock %}

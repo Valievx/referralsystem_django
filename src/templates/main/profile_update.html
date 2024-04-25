@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+  <h2>Редактирование профиля</h2>
+    <form method="post">
+        {% csrf_token %}
+        <table>
+          <tr>
+            <th>Номер телефона</th>
+            <td>{{ user.phone_number }}</td>
+          </tr>
+          <tr>
+            <th>Мой инвайт-код</th>
+            <td>{{ user.my_invite_code }}</td>
+          </tr>
+          <tr>
+            <th>Введите код приглашения</th>
+            <td>
+
+              <div class="form-group">
+                <label for="inviter_code"></label>
+                <input type="text" id="inviter_code" name="inviter_code"
+                       value="{{ user.inviter_code|default_if_none:'' }}">
+                {% if form.inviter_code.errors %}
+                  <div class="error">
+                    {{ form.inviter_code.errors.as_text }}
+                  </div>
+                {% endif %}
+              </div>
+
+            </td>
+          </tr>
+        </table>
+
+        <button type="submit" class="update-button">Сохранить изменения</button>
+        <a class="close-button" href="/">Выход</a>
+    </form>
+</div>
+
+{% endblock %}
